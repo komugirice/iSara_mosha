@@ -8,6 +8,12 @@ body {
   line-height: 1.6;
 }
 
+body, p, h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  background: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+}
+
 .clearfix::after {
   content: "";
   display: block;
@@ -38,6 +44,22 @@ header {
   background: white;
 }
 
+header .logo {
+  display: inline-block;
+}
+
+header .logo img {
+  display: inline-block;
+  /*これないと下の面が揃わない*/
+  width: 128px;
+  height: 40px;
+}
+
+header .subtitle {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 header .inner {
   width: 1170px;
   max-width: calc(100% - 20px);
@@ -53,6 +75,67 @@ header .contact-wrapper {
   top: 16px;
 }
 
+header .contact-btn {
+  display: block;
+  padding: 11px 3rem;
+  background: #da6b64;
+  color: white;
+  font-weight: 100;
+  border-radius: 25px;
+}
+
+header .contact-btn .sm-text {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header .inner {
+    padding-left: 10px;
+    max-width: 100%;
+    padding-top: 0px;
+    height: 60px;
+  }
+  header .logo {
+    position: absolute;
+    top: 25px;
+  }
+  header .logo img {
+    display: block;
+    width: 80px;
+    height: 30px;
+  }
+  header .subtitle {
+    font-size: 11px;
+    font-weight: 300;
+  }
+  header .contact-wrapper {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  header .contact-btn {
+    display: block;
+    height: 60px;
+    padding: 0px 10px;
+    background: #da6b64;
+    color: white;
+    font-weight: 100;
+    border-radius: 0px;
+  }
+  header .contact-btn .md-text {
+    display: none;
+  }
+  header .contact-btn .sm-text {
+    display: block;
+    padding-top: 10px;
+    font-weight: 100;
+  }
+  header .contact-btn .sm-text img {
+    margin: 0 auto;
+    width: 20px;
+  }
+}
+
 footer {
   background: #EAEAEA;
   padding-top: 36px;
@@ -61,7 +144,7 @@ footer {
 }
 
 footer p {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 footer p a {
@@ -105,15 +188,6 @@ iframe.twitter-share-button {
   left: 12px;
 }
 
-.contact-btn {
-  display: block;
-  padding: 11px 3rem;
-  background: #da6b64;
-  color: white;
-  font-weight: 100;
-  border-radius: 25px;
-}
-
 #sec-1 {
   background-image: url("image/main.jpg");
   background-repeat: no-repeat;
@@ -130,15 +204,33 @@ iframe.twitter-share-button {
   line-height: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  #sec-1 {
+    height: auto;
+    background-size: cover;
+  }
+  #sec-1 .inner {
+    padding: 20px 0 20px;
+  }
+  #sec-1 h2 {
+    line-height: 2rem;
+    margin-bottom: 10px;
+  }
+}
+
 #sec-2 {
   color: white;
   background: #E5AC3E;
 }
 
 #sec-2 .contact-btn {
+  display: block;
   padding: 30px 3rem;
-  border-radius: 50px;
+  border-radius: 70px;
   margin: 40px auto;
+  background: #da6b64;
+  color: white;
+  font-weight: 100;
 }
 
 #sec-2 .price {
@@ -147,6 +239,19 @@ iframe.twitter-share-button {
   color: #C7254E;
   font-family: "Menlo, Monaco, Consolas, Courier New, monospace";
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  #sec-2 .inner {
+    padding: 20px;
+  }
+  #sec-2 .contact-btn {
+    padding: 15px 0;
+    margin: 20px auto;
+  }
+  #sec-2 .kisei p:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 #sec-3 {
@@ -179,6 +284,22 @@ iframe.twitter-share-button {
   }
   #sec-3 p {
     font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-3 {
+    background-size: contain;
+    height: inherit;
+    /* これないと画像と文字がかぶる*/
+    padding-bottom: 80px;
+  }
+  #sec-3 .caption_wrapper {
+    max-width: calc(100% - 20px);
+  }
+  #sec-3 p {
+    font-size: 14px !important;
+    font-weight: 300 !important;
   }
 }
 
@@ -231,8 +352,7 @@ iframe.twitter-share-button {
 }
 
 #sec-4 h2 {
-  font-size: 22px;
-  font-weight: 600;
+  line-height: 2em;
 }
 
 #sec-4 h3 {
@@ -268,6 +388,27 @@ iframe.twitter-share-button {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-4 .inner {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #sec-4 .caption_wrapper {
+    padding: 1rem 0;
+  }
+  #sec-4 .skill-content p {
+    font-size: 10px;
+  }
+  #sec-4 .skill-content img {
+    width: 40px;
+    height: auto;
+  }
+  #sec-4 .skill-content img.freelance {
+    width: 80px;
   }
 }
 
@@ -314,6 +455,46 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-5 .inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 40px;
+  }
+  #sec-5 .desc p {
+    font-size: 12px;
+  }
+  #sec-5 .bankoku {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #sec-5 .step {
+    margin: 0 0 20px;
+  }
+  #sec-5 .step p:nth-child(1) {
+    margin-bottom: 10px;
+  }
+  #sec-5 .step p:nth-child(2) {
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-6 {
+    padding: 20px 0;
+  }
+  #sec-6 h3 {
+    font-size: 12px !important;
+  }
+}
+
 #sec-7 {
   width: 100%;
 }
@@ -339,6 +520,18 @@ iframe.twitter-share-button {
 @media only screen and (min-width: 768px) and (max-width: 1190px) {
   #sec-7 .col_4 .learningbox {
     width: 25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-7 .col_4 {
+    max-width: calc(100% - 80px);
+    width: 100%;
+    margin: 0 auto 20px auto;
+  }
+  #sec-7 .col_4 .learningbox {
+    width: 25%;
+    padding: 5px;
   }
 }
 
@@ -381,6 +574,60 @@ iframe.twitter-share-button {
   }
   #sec-8 .card img {
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-8 .inner {
+    width: calc(100% - 30px);
+  }
+  #sec-8 h3 {
+    margin-bottom: 15px;
+  }
+  #sec-8 .card {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    padding: 15px 0;
+  }
+  #sec-8 .caption_wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  #sec-8 .card_wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #sec-8 .card img {
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center center;
+       object-position: center center;
+  }
+  #sec-8 .card p {
+    margin: 0 auto;
+    text-align: left;
+    width: calc(100% - 40px);
+  }
+  #sec-8 .card p:nth-child(2) {
+    text-align: center;
+  }
+  #sec-8 .content {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  #sec-8 .content p:last-child {
+    line-height: 1rem !important;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0;
   }
 }
 
@@ -439,6 +686,27 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-9 .inner > p {
+    font-weight: bold;
+  }
+  #sec-9 .card_wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #sec-9 .card .info {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 40px 10px 20px;
+  }
+  #sec-9 .card img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 #sec-10 {
   background: #E8B33E;
   position: relative;
@@ -485,7 +753,7 @@ iframe.twitter-share-button {
   right: 0;
 }
 
-.qa-caption {
+#sec-10 .qa-caption {
   width: 80px;
   height: 80px;
   border-radius: 40px;
@@ -495,6 +763,15 @@ iframe.twitter-share-button {
   text-align: center;
   line-height: 80px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  #sec-10 .qa-caption {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
 }
 
 #sec-11 {
@@ -513,17 +790,20 @@ iframe.twitter-share-button {
 
 #sec-11 .media__img {
   border: 3px solid orange;
+  width: 240px;
+  height: 240px;
 }
 
 #sec-11 .media__body {
   text-align: left;
-  color: #777;
+  color: #888;
   font-style: italic;
-  font-weight: 300 i !important;
+  font-weight: 300 !important;
 }
 
 #sec-11 .media__title {
   text-decoration: underline;
+  font-weight: 300 !important;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1190px) {
@@ -536,11 +816,35 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-11 .message {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #sec-11 .media__img {
+    width: 160px;
+    height: 160px;
+  }
+  #sec-11 .media__img-wrapper {
+    margin-right: 20px;
+  }
+  #sec-11 .media__body {
+    padding-top: 0;
+  }
+  #sec-11 .media__body.txtm {
+    font-size: 18px;
+  }
+}
+
 #sec-12 {
   background-image: url("image/classbg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+#sec-12 .ul-wrap {
+  display: inline-block;
 }
 
 #sec-12 ul {
@@ -567,6 +871,29 @@ iframe.twitter-share-button {
   #sec-12 ul {
     width: 300px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-12 .inner {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #sec-12 .ul-wrap {
+    display: block;
+  }
+  #sec-12 ul {
+    width: 100%;
+  }
+  #sec-12 ul:first-child {
+    margin-bottom: 20px;
+  }
+  #sec-12 li {
+    width: 100%;
+  }
+}
+
+#sec-14 {
+  /* アコーディオン部分 */
 }
 
 #sec-14 .flow-detail {
@@ -605,12 +932,101 @@ iframe.twitter-share-button {
   font-weight: bold;
 }
 
+#sec-14 .accordion-hidden {
+  display: none;
+}
+
+#sec-14 .accordion-open {
+  display: block;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1190px) {
   #sec-14 .flow-detail {
     padding: 10px 30px;
   }
   #sec-14 .flow-detail > img {
     width: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #sec-14 {
+    /* アコーディオン部分 */
+  }
+  #sec-14 h2 {
+    margin: 3rem auto;
+  }
+  #sec-14 .flow_img {
+    display: none;
+  }
+  #sec-14 .flow-detail {
+    padding: 0px 10px;
+  }
+  #sec-14 .line_img {
+    display: none;
+  }
+  #sec-14 .flow-detail__wrap {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    position: relative;
+  }
+  #sec-14 .flow-left {
+    width: 100%;
+    float: unset;
+  }
+  #sec-14 .flow-left img {
+    width: 40px;
+    height: auto;
+    margin: 0;
+    display: inline-block;
+  }
+  #sec-14 .flow-left h4 {
+    display: inline-block;
+  }
+  #sec-14 .flow-right {
+    margin-top: 20px;
+  }
+  #sec-14 .flow-right > p:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  #sec-14 .accordion-open {
+    display: inline-block;
+    text-align: right;
+  }
+  #sec-14 .accordion-open:hover {
+    text-decoration: underline;
+  }
+  #sec-14 .accordion-open:after {
+    content: ">";
+    font-weight: bold;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    float: right;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  #sec-14 .accordion-close {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  #sec-14 .accordion-hidden:checked + .accordion-open:after {
+    content: ">";
+    font-weight: bold;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  #sec-14 .accordion-hidden:checked + .accordion-open + .accordion-close {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -647,6 +1063,21 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-15 .inner {
+    padding: 40px;
+  }
+  #sec-15 .inner > h2 + p {
+    margin: 20px auto;
+  }
+  #sec-15 h2 {
+    text-align: center;
+  }
+  #sec-15 ul li:not(:last-child) {
+    line-height: 2rem;
+  }
+}
+
 #sec-16 {
   padding-bottom: 40px;
 }
@@ -679,9 +1110,7 @@ iframe.twitter-share-button {
 #sec-16 .specialbox__wrapper {
   width: 250px;
   height: 250px;
-  border-radius: 125px;
-  background: white;
-  text-align: center;
+  position: relative;
 }
 
 #sec-16 .specialbox__wrapper span {
@@ -697,8 +1126,27 @@ iframe.twitter-share-button {
 #sec-16 .specialbox__box {
   padding: 15px;
   height: 250px;
+  width: 250px;
+  border-radius: 125px;
+  background: white;
+  text-align: center;
   display: table-cell;
   vertical-align: middle;
+}
+
+#sec-16 .specialbox__box .tokuten {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+}
+
+#sec-16 .tokuten__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70px;
+  padding: 20px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1190px) {
@@ -719,6 +1167,59 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-16 .inner > h2 {
+    padding: 30px 0;
+  }
+  #sec-16 .inner > h2 + p {
+    margin-bottom: 30px;
+  }
+  #sec-16 .specialpeople {
+    width: 220px;
+  }
+  #sec-16 .specialpeople h2 {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  #sec-16 .specialbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #sec-16 .specialbox__wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  #sec-16 .specialbox__wrapper:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  #sec-16 .specialbox__wrapper .specialbox__box {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: block;
+    padding: 0;
+    float: left;
+  }
+  #sec-16 .specialbox__wrapper .specialbox__box .tokuten {
+    position: absolute;
+    top: 35% !important;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  #sec-16 .specialbox__wrapper .tokuten__info {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    width: calc(100% - 80px);
+    padding: 10px;
+    color: white;
+    text-align: left;
+  }
+}
+
 #sec-17 {
   background-image: url("image/specialdetail.jpg");
   background-repeat: no-repeat;
@@ -728,10 +1229,6 @@ iframe.twitter-share-button {
   font-size: 20px;
   line-height: 1.5;
   padding: 70px 40px 86px;
-}
-
-#sec-17 .txtm {
-  font-weight: 500;
 }
 
 #sec-17 .caption_wrapper {
@@ -761,6 +1258,25 @@ iframe.twitter-share-button {
   border-bottom: solid 3px white;
   bottom: 0;
   right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #sec-17 {
+    padding: 35px 20px 50px;
+  }
+  #sec-17 .txtm {
+    font-size: 0.75rem;
+  }
+  #sec-17 .caption_wrapper > h2 {
+    line-height: 2.5rem;
+  }
+  #sec-17 .caption_wrapper::before,
+  #sec-17 .caption_wrapper::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    position: absolute;
+  }
 }
 
 #sec-18 .txts {
@@ -807,6 +1323,36 @@ iframe.twitter-share-button {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #sec-18 {
+    padding: 50px 15px;
+  }
+  #sec-18 > h3 {
+    margin: 2rem auto 1rem;
+  }
+  #sec-18 .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+  }
+  #sec-18 img {
+    width: auto;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  #sec-18 .desc {
+    width: 100%;
+    color: black;
+    font-size: 14px;
+  }
+  #sec-18 .desc p:nth-child(2) {
+    padding-bottom: 30px;
+  }
+}
+
 #sec-form .form-item {
   width: 70%;
   margin: 0 auto;
@@ -833,9 +1379,26 @@ iframe.twitter-share-button {
   border-radius: 28px;
 }
 
+@media screen and (max-width: 768px) {
+  #sec-form {
+    padding: 30px 0;
+  }
+  #sec-form .form-item {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
 #sec-faq .faq__wrap {
   width: 80%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  #sec-faq .faq__wrap {
+    width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .acd-check {
@@ -915,6 +1478,14 @@ iframe.twitter-share-button {
   font-weight: 600;
 }
 
+.md_br {
+  display: none;
+}
+
+.xl_br {
+  display: inline;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1190px) {
   .txtl {
     font-size: 24px;
@@ -952,6 +1523,12 @@ iframe.twitter-share-button {
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 0;
+  }
+  .md_br {
+    display: inline;
+  }
+  .xl_br {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */
