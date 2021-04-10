@@ -35,7 +35,7 @@ section {
 header {
     width: 100%;
     position:sticky; /*入れたら.innerのwidthがレスポンシブになった。なんで？*/
-    top: 0;
+    top: -1px; /* -1pxにしないとborder分が空いた */
     left: 0;
     z-index: 2;
     background: white;
@@ -517,7 +517,7 @@ iframe.twitter-share-button {
     }
     & .caption_wrapper {
         max-width: 860px;
-        position: relative
+        // position: relative
     }
     & .caption_wrapper::before,
     & .caption_wrapper::after {
